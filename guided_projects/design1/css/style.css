@@ -1,4 +1,8 @@
 /* start Global Rules*/
+:root {
+    --main-color: #10cab7;
+    --scendary-color:#2c4755;
+}
 * {
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
@@ -43,6 +47,29 @@ body{
     }
 }
 /* End Global Rules*/
+/*components*/
+.special-heading{
+    color: #ebeced;
+    font-size: 100px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin: 0;
+}
+.special-heading + p{
+    margin:-20px 0 0;
+    font-size: 20px;
+    text-align: center;
+    color: #797979;
+}
+@media (max-width:767px){
+    .special-heading{
+        font-size: 60px;
+    }
+    .special-heading + p{
+        margin: -15px 0 0 ;
+    }
+}
 /*Header*/
 .header{
     padding: 20px;
@@ -112,8 +139,12 @@ body{
     right: 0;
     min-width: 200px;
     top: calc(100% + 15px);
+    display: none;
+    z-index: 1;
 }
-
+.header .links:hover ul{
+    display: block;
+}
 
 .header .links ul:before{
     content: "";
@@ -130,4 +161,136 @@ body{
     text-decoration: none;
     color: #333;
     transform: 0.3s;
+}
+.header .links ul li a:hover{
+    padding-left: 25px;
+    background-color: var(--main-color);
+}
+.header .links ul li:not(:last-child) a{
+    border-bottom: 1px solid #ddd;
+
+}
+/*landing */
+.landing{
+    background-image: url('../imgs/mountain.jpg');
+    background-size:cover;
+    height: calc(100vh - 64px) ;
+    /*position: relative;*/
+
+}
+.landing .intro-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+   
+
+}
+.landing .intro-text h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--main-color);
+    text-align: center;
+    
+}
+
+.landing .intro-text p{
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/*features*/
+.features {
+    padding-top: 60px;
+    padding-bottom:60px ;
+    background-color: #f6f6f6;
+}
+
+.features .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap:20px;
+
+}
+.features .feat {
+    padding: 20px;
+    text-align: center;
+}
+.features .feat i {
+    color: var(--main-color);
+}
+
+.features .feat h3 {
+    font-weight: 800;
+    margin: 30px 0;
+}
+.features .feat p {
+    line-height: 1.8;
+    color: #777;
+    font-size: 17px;
+
+}
+.services {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.services .services-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 100px;
+}
+
+.services .services-content .srv{
+    display: flex;
+    margin-bottom: 40px;
+
+}
+@media (max-width:767px){
+    .services .services-content .srv{
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.services .services-content .srv i{
+    color: var(--main-color);
+    flex-basis: 60px;
+}
+.services .services-content .srv .text{
+    flex: 1;
+}
+.services .services-content .srv .text h3{
+    margin: 0 0 20px;
+}
+.services .services-content .srv .text p{
+    color: #444;
+    font-weight: 300;
+    line-height: 1.8;
+}
+.services .services-content .image{
+    text-align: center;
+    position: relative;
+}
+.services .services-content .image:before{
+    content: "";
+    background-color: var(--scendary-color);
+    width: 100px;
+    height: calc(100%-100px);
+    top: -50px;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.services .services-content .image img{
+    width: 260px;
+}
+@media (max-width:1199px){
+    .img-class{
+        display: none;
+
+    }
 }
